@@ -2,6 +2,6 @@
 
 if [ "$ASDF_SKIP_RESHIM" == "1" ]; then
   echo "Run 'asdf reshim nodejs ${ASDF_INSTALL_VERSION:-$npm_config_node_version}' after installing the packets to reshim"
-else
+elif [ `/usr/bin/env | grep "npm_package_bin"` ]; then
   asdf reshim nodejs "${ASDF_INSTALL_VERSION:-$npm_config_node_version}"
 fi
